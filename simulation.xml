@@ -282,7 +282,7 @@
 </Rule>
 <Rule>
         <Prod>
-            Ectoderm -&gt; 0.00003472222 {Ectoderm, Ectoderm}_0.4 | {Ectoderm, Skin}_0.2 | {Ectoderm, Neuron}_0.2 | {Ectoderm, Pigment}_0.2
+            Ectoderm -&gt; 0.00003472222 {Ectoderm, Ectoderm}_0.4 | {Ectoderm, Skin}_0.2 | {Ectoderm, Neuroectoderm}_0.2 | {Ectoderm, Pigment}_0.2
         </Prod>
         <InternalState>
                 <Name> Time </Name>
@@ -520,7 +520,211 @@
 </Rule>
 <Rule>
         <Prod>
-                Neuron -&gt; 0.00003472222 {Neuron, Neuron}_1
+                Neuroectoderm -&gt; 0.00003472222 {Neuroectoderm_Left, Neuroectoderm_Right}_0.9 | {Neuroectoderm, Neuroectoderm}_0.1
+        </Prod>
+        <InternalState>
+                <Name> Time </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_time </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> MS </Name>
+                <InitVal> -1 </InitVal>
+                <FuncHandleName> update_microsatellite </FuncHandleName>
+                <DuplicateNum> 5 </DuplicateNum>
+        </InternalState>
+        <InternalState>
+                <Name> Gen </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_generation </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> ChildrenLifeTokens </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> FuncUpdateChildrenLifeTokens </FuncHandleName>
+                <DuplicateNum> 2 </DuplicateNum>
+        </InternalState>
+        <ConditionalTransition>
+                <Condition> max(ChildrenLifeTokens) == 0 </Condition>
+                <Transition> {0} </Transition>
+        </ConditionalTransition>
+        <InitPop>
+                0
+        </InitPop>
+</Rule>
+<Rule>
+        <Prod>
+                Neuroectoderm_Left -&gt; 0.00003472222 {Neuroectoderm_Left, Neuroectoderm_Left}_0.35 | {Forebrain, Forebrain}_0.3 | {Midbrain, Midbrain}_0.15 | {Hindbrain, Hindbrain}_0.15 | {NeuralTube, NeuralTube}_0.05
+        </Prod>
+        <InternalState>
+                <Name> Time </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_time </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> MS </Name>
+                <InitVal> -1 </InitVal>
+                <FuncHandleName> update_microsatellite </FuncHandleName>
+                <DuplicateNum> 5 </DuplicateNum>
+        </InternalState>
+        <InternalState>
+                <Name> Gen </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_generation </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> ChildrenLifeTokens </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> FuncUpdateChildrenLifeTokens </FuncHandleName>
+                <DuplicateNum> 2 </DuplicateNum>
+        </InternalState>
+        <ConditionalTransition>
+                <Condition> max(ChildrenLifeTokens) == 0 </Condition>
+                <Transition> {0} </Transition>
+        </ConditionalTransition>
+        <InitPop>
+                0
+        </InitPop>
+</Rule>
+<Rule>
+        <Prod>
+                Neuroectoderm_Right -&gt; 0.00003472222 {Neuroectoderm_Right, Neuroectoderm_Right}_0.4 | {Forebrain, Forebrain}_0.3 | {Midbrain, Midbrain}_0.15 | {Hindbrain, Hindbrain}_0.15
+        </Prod>
+        <InternalState>
+                <Name> Time </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_time </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> MS </Name>
+                <InitVal> -1 </InitVal>
+                <FuncHandleName> update_microsatellite </FuncHandleName>
+                <DuplicateNum> 5 </DuplicateNum>
+        </InternalState>
+        <InternalState>
+                <Name> Gen </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_generation </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> ChildrenLifeTokens </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> FuncUpdateChildrenLifeTokens </FuncHandleName>
+                <DuplicateNum> 2 </DuplicateNum>
+        </InternalState>
+        <ConditionalTransition>
+                <Condition> max(ChildrenLifeTokens) == 0 </Condition>
+                <Transition> {0} </Transition>
+        </ConditionalTransition>
+        <InitPop>
+                0
+        </InitPop>
+</Rule>
+<Rule>
+        <Prod>
+                Forebrain -&gt; 0.00003472222 {Forebrain, Forebrain}_1
+        </Prod>
+        <InternalState>
+                <Name> Time </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_time </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> MS </Name>
+                <InitVal> -1 </InitVal>
+                <FuncHandleName> update_microsatellite </FuncHandleName>
+                <DuplicateNum> 5 </DuplicateNum>
+        </InternalState>
+        <InternalState>
+                <Name> Gen </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_generation </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> ChildrenLifeTokens </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> FuncUpdateChildrenLifeTokens </FuncHandleName>
+                <DuplicateNum> 2 </DuplicateNum>
+        </InternalState>
+        <ConditionalTransition>
+                <Condition> max(ChildrenLifeTokens) == 0 </Condition>
+                <Transition> {0} </Transition>
+        </ConditionalTransition>
+        <InitPop>
+                0
+        </InitPop>
+</Rule>
+<Rule>
+        <Prod>
+                Midbrain -&gt; 0.00003472222 {Midbrain, Midbrain}_1
+        </Prod>
+        <InternalState>
+                <Name> Time </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_time </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> MS </Name>
+                <InitVal> -1 </InitVal>
+                <FuncHandleName> update_microsatellite </FuncHandleName>
+                <DuplicateNum> 5 </DuplicateNum>
+        </InternalState>
+        <InternalState>
+                <Name> Gen </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_generation </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> ChildrenLifeTokens </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> FuncUpdateChildrenLifeTokens </FuncHandleName>
+                <DuplicateNum> 2 </DuplicateNum>
+        </InternalState>
+        <ConditionalTransition>
+                <Condition> max(ChildrenLifeTokens) == 0 </Condition>
+                <Transition> {0} </Transition>
+        </ConditionalTransition>
+        <InitPop>
+                0
+        </InitPop>
+</Rule>
+<Rule>
+        <Prod>
+                Hindbrain -&gt; 0.00003472222 {Hindbrain, Hindbrain}_1
+        </Prod>
+        <InternalState>
+                <Name> Time </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_time </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> MS </Name>
+                <InitVal> -1 </InitVal>
+                <FuncHandleName> update_microsatellite </FuncHandleName>
+                <DuplicateNum> 5 </DuplicateNum>
+        </InternalState>
+        <InternalState>
+                <Name> Gen </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> update_generation </FuncHandleName>
+        </InternalState>
+        <InternalState>
+                <Name> ChildrenLifeTokens </Name>
+                <InitVal> 0 </InitVal>
+                <FuncHandleName> FuncUpdateChildrenLifeTokens </FuncHandleName>
+                <DuplicateNum> 2 </DuplicateNum>
+        </InternalState>
+        <ConditionalTransition>
+                <Condition> max(ChildrenLifeTokens) == 0 </Condition>
+                <Transition> {0} </Transition>
+        </ConditionalTransition>
+        <InitPop>
+                0
+        </InitPop>
+</Rule>
+<Rule>
+        <Prod>
+                NeuralTube -&gt; 0.00003472222 {NeuralTube, NeuralTube}_1
         </Prod>
         <InternalState>
                 <Name> Time </Name>
